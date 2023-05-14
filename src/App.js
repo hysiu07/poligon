@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import Chapter2 from './Tasks/Chapter2';
+
 
 const styles = {
 	backgroundColor: 'gray',
@@ -30,7 +32,7 @@ class News extends Component {
 		};
 	}
 	componentDidMount() {
-		this.setState({score:8})
+		this.setState({ score: 8 });
 	}
 	render() {
 		const { header, intro } = this.props;
@@ -66,6 +68,7 @@ function App() {
 			{data.map((el, index) => {
 				return <News key={index} header={el.header} intro={el.intro} />;
 			})}
+			<Chapter2 />
 		</div>
 	);
 }
