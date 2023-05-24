@@ -8,17 +8,19 @@ import Articles from './Pages/Articles';
 import Content from './Components/Content';
 import Footer from './Components/Footer';
 import Chapter3 from './Tasks/Chapter3';
+import Form from './Pages/Form';
 
 function App() {
 	return (
 		<div>
 			<Header />
+			<Form />
 			<Content>
 				<Articles />
 			</Content>
 			<News />
 			<Chapter2 />
-			<Chapter3/>
+			<Chapter3 />
 			<Footer />
 		</div>
 	);
