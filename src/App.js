@@ -8,6 +8,7 @@ import Articles from './Pages/Articles';
 import Content from './Components/Content';
 import Footer from './Components/Footer';
 import Chapter3 from './Tasks/Chapter3';
+import Chapter4 from './Tasks/Chapter4/Chapter4';
 import Form from './Pages/Form';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
 			<News />
 			<Chapter2 />
 			<Chapter3 />
+			<Chapter4 />
 			<Footer />
 		</div>
 	);

@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 function Form() {
+	const inputSurname = useRef();
+
 	// const [formData, setFormData] = useState({
 	// 	name: '',
 	// 	surname: '',
@@ -27,6 +29,12 @@ function Form() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 	};
+	const focusSurname = () => {
+		inputSurname.current.focus();
+		inputSurname.current.value = 'Kowalski';
+		inputSurname.current.style.border = 'red 1px solid';
+	};
+
 	// const handleChange = (e) => {
 	// 	const target = e.target;
 	// 	const name = target.name;
@@ -50,6 +58,7 @@ function Form() {
 					type='text'
 					name='surname'
 					placeholder='Surname'
+					ref={inputSurname}
 					onChange={handleSurNameChange}
 				/>
 			</div>
@@ -62,6 +71,7 @@ function Form() {
 				/>
 			</div>
 			<button onClick={handleClick}>React button</button>
+			<button onClick={focusSurname}>Ref Surname</button>
 		</form>
 	);
 }
