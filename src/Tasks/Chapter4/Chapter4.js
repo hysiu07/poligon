@@ -1,4 +1,6 @@
 import React, { useState, useRef } from 'react';
+import Task2 from './Task2';
+import Task2Formik from './Task2Formik';
 
 function Chapter4() {
 	const [value, setValue] = useState(0);
@@ -37,6 +39,9 @@ function Chapter4() {
 			) : (
 				value
 			)}
+
+			<Task2 />
+			<Task2Formik />
 		</div>
 	);
 }
