@@ -3,7 +3,7 @@ import Dialog from './Dialog';
 import Snackbar from './Snackbar';
 import Navmenu from './Navmenu';
 import { NavLink } from 'react-router-dom';
-
+import UserContainer from './UserContainer';
 
 function Chapter5() {
 	let delay = 5000;
@@ -15,17 +15,20 @@ function Chapter5() {
 			<Navmenu />
 			<Dialog />
 			<Snackbar delay={delay} position={rightTop} />
-			<ul>
-				<li>
-					<NavLink to={'/'}>Chapter5</NavLink>
-				</li>
-				<li>
-					<NavLink to={'/dialog'}>Dialog</NavLink>
-				</li>
-				<li>
-					<NavLink to={'/snackbar'}>Snackbar</NavLink>
-				</li>
-			</ul>
+			<div>
+				<ul>
+					<li>
+						<NavLink to={'/'}>Chapter5</NavLink>
+					</li>
+					<li>
+						<NavLink to={'/dialog'}>Dialog</NavLink>
+					</li>
+					<li>
+						<NavLink to={'/snackbar'}>Snackbar</NavLink>
+					</li>
+				</ul>
+			</div>
+			<UserContainer />
 		</div>
 	);
 }

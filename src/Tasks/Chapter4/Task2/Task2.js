@@ -22,7 +22,7 @@ function Task2() {
 	});
 
 	const [confirmForm, setConfirmForm] = useState(false);
-	console.log(confirm);
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 	};
