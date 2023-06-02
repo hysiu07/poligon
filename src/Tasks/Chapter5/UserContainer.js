@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './UserContainer.css';
 
-function UserSearch({ usersList, setUsersList }) {
+function UserSearch({ usersList, setUsersList, setReset, reset }) {
 	const [searchUser, setSearchUser] = useState('');
-	console.log(searchUser);
 
 	return (
 		<div>
@@ -17,26 +16,20 @@ function UserSearch({ usersList, setUsersList }) {
 			/>
 			<button
 				onClick={() => {
-					usersList.filter((el) => {
-						console.log(el.userName);
-						if (searchUser === el.userName) {
-							console.log('tak');
-                            console.log(usersList);
-                            console.log(el);
-                            setUsersList(el)
-						} else {
-							console.log('nie');
-						}
-					});
+					setUsersList(
+						usersList.filter((el) => {
+							if (el.userName.includes(searchUser)) {
+								return el;
+							}
+						})
+					);
 				}}
 			>
 				enter
 			</button>
 			<button
 				onClick={() => {
-					setUsersList((prevUserList) => {
-						return prevUserList;
-					});
+					setReset(!reset);
 				}}
 			>
 				reset
@@ -46,8 +39,8 @@ function UserSearch({ usersList, setUsersList }) {
 }
 
 function UserContainer() {
-    
 	const [usersList, setUsersList] = useState([]);
+	const [reset, setReset] = useState(false);
 
 	useEffect(() => {
 		fetch('users.json')
@@ -55,11 +48,16 @@ function UserContainer() {
 			.then((data) => {
 				setUsersList(data);
 			});
-	}, []);
+	}, [reset]);
 
 	return (
 		<div className='user-container'>
-			<UserSearch setUsersList={setUsersList} usersList={usersList} />
+			<UserSearch
+				setUsersList={setUsersList}
+				usersList={usersList}
+				setReset={setReset}
+				reset={reset}
+			/>
 			{usersList.map((user) => {
 				return (
 					<ul key={user.userId}>
