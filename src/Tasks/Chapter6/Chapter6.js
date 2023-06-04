@@ -3,6 +3,9 @@ import FormTask from './FormTask';
 
 import './Chapter6.css';
 
+import './Chapter6.scss';
+import FormSteps from './FormSteps';
+
 function Chapter6() {
 	// const [data, setData] = useState({
 	// 	name: '',
@@ -44,15 +47,32 @@ function Chapter6() {
 			}
 		}
 	};
+	const isHawaiiPizzaAvailable = false;
+
+	const pizzaPromise = new Promise((resolve, rejected) => {
+		if (isHawaiiPizzaAvailable) {
+			resolve('OK!');
+		}
+		rejected('oh NO!');
+	});
+
+	const myOrder = pizzaPromise
+		.then((respons) => {
+			console.log('wszystko git', respons);
+		})
+		.catch((error) => {
+			console.log('kurwa nie działa');
+		});
+
 	return (
 		<div>
 			<form className='chapter6-form' onSubmit={submit} method='GET'>
-				<h2>Registration form</h2>
+				<h2 className='chapter6__title'>Registration form</h2>
 				<p>
 					{/* Name:{data.name} {data.surname} email: {data.email} hobby:{' '}
 					{data.hobby} */}
 				</p>
-				<label>
+				<label className='chapter6__label'>
 					Name:
 					<input type='text' name='name' ref={nameRef} />
 					<p ref={errorNameRef}></p>
@@ -76,6 +96,7 @@ function Chapter6() {
 				<button type='submit'>submit</button>
 			</form>
 			<FormTask />
+			<FormSteps />
 		</div>
 	);
 }

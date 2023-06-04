@@ -95,6 +95,8 @@ function FormTask() {
 
 		if (email !== '') {
 			setDisabledPassword(false);
+		} else {
+			setDisabledPassword(true);
 		}
 	};
 

@@ -1,0 +1,16 @@
+.chapter6-form {
+	display: flex;
+	flex-direction: column;
+}
+.error-red {
+	color: red;
+}
+
+.chapter6 {
+	&__title {
+		color: red;
+	}
+	&__label {
+		color: aqua;
+	}
+}
