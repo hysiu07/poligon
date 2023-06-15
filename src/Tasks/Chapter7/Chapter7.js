@@ -4,10 +4,6 @@ import { Link } from 'react-router-dom';
 import './chapter7.scss';
 import { PassContext } from './context';
 
-
-
-
-
 export default class Chapter7 extends Component {
 	static contextType = PassContext;
 	constructor(props) {
@@ -38,7 +34,7 @@ export default class Chapter7 extends Component {
 		return (
 			<div className='chapter7'>
 				<h2>Chapter 7 Task</h2>
-				
+
 				{!show && (
 					<div className='container-chapter7'>
 						<label htmlFor='passphrase'>

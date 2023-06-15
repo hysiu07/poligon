@@ -23,13 +23,36 @@ function MobileNavItem({ icon, name }) {
 
 function Places(props) {
 	const user = useContext(UserInfo);
-	const { width } = useMobile();
+	const { width, mobileSize } = useMobile();
+
 	return (
 		<div>
 			<div className='chapter7-menu-nav'>
-				<DesktopNavItem name={'Home'} icon={<AiOutlineHome size={'2em'} />} />
-				<DesktopNavItem name={'About'} icon={<FcAbout size={'2em'} />} />
-				<DesktopNavItem name={'Team'} icon={<AiOutlineTeam size={'2em'} />} />
+				{mobileSize ? (
+					<div>
+						<MobileNavItem
+							name={'Home'}
+							icon={<AiOutlineHome size={'2em'} />}
+						/>
+						<MobileNavItem name={'About'} icon={<FcAbout size={'2em'} />} />
+						<MobileNavItem
+							name={'Team'}
+							icon={<AiOutlineTeam size={'2em'} />}
+						/>
+					</div>
+				) : (
+					<div>
+						<DesktopNavItem
+							name={'Home'}
+							icon={<AiOutlineHome size={'2em'} />}
+						/>
+						<DesktopNavItem name={'About'} icon={<FcAbout size={'2em'} />} />
+						<DesktopNavItem
+							name={'Team'}
+							icon={<AiOutlineTeam size={'2em'} />}
+						/>
+					</div>
+				)}
 			</div>
 			<h3>Places funcion-component</h3>
 			<p>{user.name}</p>
@@ -37,7 +60,8 @@ function Places(props) {
 			<p>{user.email}</p>
 			<h4>HoC</h4>
 			<p>{props.city}</p>
-			<p>szerokość::{width}</p>
+			<p>szerokość:{width}</p>
+			<p>mobileSize:{mobileSize ? 'true' : 'false'}</p>
 		</div>
 	);
 }
